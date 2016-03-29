@@ -95,7 +95,8 @@ sleep 1;
 
 # ################
 # #SSH To Live Server (Rsync?)
-# echo "SSH-ing with rsync to live server";
+echo "SSH-ing with rsync to live server";
+sh ~/deploy/rsyncbuild.sh;
 # sleep 1;
 
 # ################
