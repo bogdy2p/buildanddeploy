@@ -47,7 +47,6 @@ export BUILD_NUMBER=1 && ../magento-deployscripts/build.sh -f build-${BUILD_NUMB
 echo $Clearer;
 
 cd $ArtifactsFolder;
-
 echo $Clearer;
 
 mkdir build1;
@@ -71,7 +70,6 @@ ApplyPhpTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$ApplyPhpPathIn
 cp $ApplyPhpFrom1 $ApplyPhpTo1;
 echo "Copied Apply.php (Overwritten)";
 
-
 # ################
 # #Re-add to archives. (Maybe only first archive.)
 rm build-1.tar.gz
@@ -85,15 +83,15 @@ sleep 1;
 
 tar -zcvf ../build-1.tar.gz .; 
 
-
 # ls
 echo "Re-added to archive;";
 sleep 2;
 
 #REMOVE TEMPORARY FOLDER BUILD1
+
+cd $ApacheFolder/$AmoranaFolder/$ArtifactsFolder;
 rm -R build1;
 sleep 1;
-
 
 # ################
 # #SSH To Live Server (Rsync?)
