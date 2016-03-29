@@ -55,16 +55,16 @@ tar -xvzf build-1.tar.gz -C build1
 echo $Clearer;
 ls
 
-#################
-#Copy install.sh 
+# #################
+# #Copy install.sh 
 
 InstallFrom1=$ApacheFolder/$BuildAndDeployFolder/patched-files/install.sh;
 InstallTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$InstallSHPathInVendor;
 cp $InstallFrom1 $InstallTo1;
 echo "Copied Install.sh";
 
-#################
-#Copy apply.php
+# #################
+# #Copy apply.php
 
 ApplyPhpFrom1=$ApacheFolder/$BuildAndDeployFolder/patched-files/apply.php;
 ApplyPhpTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$ApplyPhpPathInVendor;
@@ -72,37 +72,37 @@ cp $ApplyPhpFrom1 $ApplyPhpTo1;
 echo "Copied Apply.php (Overwritten)";
 
 
-
-################
-#Re-add to archives. (Maybe only first archive.)
+# ################
+# #Re-add to archives. (Maybe only first archive.)
 rm build-1.tar.gz
 echo "Removed build1TarGz";
 sleep 1;
 
-#Enter build1 folder;
+# #Enter build1 folder;
 cd build1;
 echo "Re-creating archive:";
 sleep 1;
 
-tar -zcvf ../build-1.tar.gz *; 
+tar -zcvf ../build-1.tar.gz .; 
 
 
-ls
-
-
-
-
+# ls
 echo "Re-added to archive;";
 sleep 2;
 
-################
-#SSH To Live Server (Rsync?)
-echo "SSH-ing with rsync to live server";
+#REMOVE TEMPORARY FOLDER BUILD1
+rm -R build1;
 sleep 1;
 
-################
-#Run export command on live server (Via SSH)
-echo "Running import via ssh on live server";
-sleep 1;
+
+# ################
+# #SSH To Live Server (Rsync?)
+# echo "SSH-ing with rsync to live server";
+# sleep 1;
+
+# ################
+# #Run export command on live server (Via SSH)
+# echo "Running import via ssh on live server";
+# sleep 1;
 
 echo "OK! ALL DONE !";
