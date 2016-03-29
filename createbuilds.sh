@@ -53,9 +53,6 @@ echo $Clearer;
 mkdir build1;
 tar -xvzf build-1.tar.gz -C build1
 echo $Clearer;
-mkdir build1extra;
-tar -xvzf build-1.extra.tar.gz -C build1extra
-echo $Clearer;
 ls
 
 #################
@@ -78,8 +75,25 @@ echo "Copied Apply.php (Overwritten)";
 
 ################
 #Re-add to archives. (Maybe only first archive.)
-echo "Re-added to archive;";
+rm build-1.tar.gz
+echo "Removed build1TarGz";
 sleep 1;
+
+#Enter build1 folder;
+cd build1;
+echo "Re-creating archive:";
+sleep 1;
+
+tar -zcvf ../build-1.tar.gz *; 
+
+
+ls
+
+
+
+
+echo "Re-added to archive;";
+sleep 2;
 
 ################
 #SSH To Live Server (Rsync?)
