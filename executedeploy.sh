@@ -1,10 +1,7 @@
 #!/bin/bash
 
-LocalFolderFile="/var/www/html/amora_sec/artifacts";
-AwayFolderFile="";
-AwayAdress="amora_sec@second.amorana.ch";
-
-rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" --progress $LocalFolderFile $AwayAdress:$AwayFolderFile;
-
-echo "Synced Succesfully";
+echo "THIS IS NOT YET IMPLEMENTED";
+echo "YOU MUST CONNECT VIA SSH AND CALL THE COMMAND IN THIS SCRIPT BY TERMINAL";
+#export BUILD_NUMBER=1 && magento-deployscripts/deploy.sh -d -e staging -r artifacts/build-${BUILD_NUMBER}.tar.gz -t ~/htdocs/amorana-v2/stagin
+echo "ExecuteDeploy Called Succesfully (mustimplement)";
 

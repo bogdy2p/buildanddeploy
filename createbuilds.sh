@@ -87,8 +87,8 @@ tar -zcvf ../build-1.tar.gz .;
 echo "Re-added to archive;";
 sleep 2;
 
-#REMOVE TEMPORARY FOLDER BUILD1
-
+###################
+#REMOVE TEMPORARY FO1LDER BUILD1
 cd $ApacheFolder/$AmoranaFolder/$ArtifactsFolder;
 rm -R build1;
 sleep 1;
@@ -97,11 +97,11 @@ sleep 1;
 # #SSH To Live Server (Rsync?)
 echo "SSH-ing with rsync to live server";
 sh ~/deploy/rsyncbuild.sh;
-# sleep 1;
+sleep 1;
 
 # ################
-# #Run export command on live server (Via SSH)
-# echo "Running import via ssh on live server";
-# sleep 1;
-
+#Run export command on live server (Via SSH)
+echo "Running export via ssh on live server";
+sh ~/deploy/executedeploy.sh;
+sleep 1;
 echo "OK! ALL DONE !";
