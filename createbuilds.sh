@@ -1,15 +1,15 @@
 #!/bin/bash
 
 #Configurations
+ApacheFolder="/var/www/html";
 AmoranaFolder="amora_sec";
-MagentoDeployScriptFolder="magento_deployscripts";
+MagentoDeployScriptFolder="magento-deployscripts";
 AmoranaGit="http://git.reea.net/reea/amorana.git";
 MagentoDeployScriptsGit="https://github.com/AOEpeople/magento-deployscripts.git";
 
-
 ##############
 #Cd into apache folder
-cd /var/www/html;
+cd $ApacheFolder;
 ls;
 ##############
 #Grab magento scripts into specific folder
@@ -28,6 +28,8 @@ cd $AmoranaFolder;
 #Install amorana project with composer
 composer install;
 
+ls
 
+export BUILD_NUMBER=1 && ../magento-deployscripts/build.sh -f build-${BUILD_NUMBER}.tar.gz -b ${BUILD_NUMBER}
 
 echo "OK!";
