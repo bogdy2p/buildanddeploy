@@ -10,6 +10,8 @@ MagentoDeployScriptFolder="magento-deployscripts";
 AmoranaGit="http://git.reea.net/reea/amorana.git";
 MagentoDeployScriptsGit="https://github.com/AOEpeople/magento-deployscripts.git";
 ArtifactsFolder="artifacts";
+ApplyPhpPathInVendor="vendor/aoepeople/envsettingstool/apply.php";
+InstallSHPathInVendor="vendor/aoepeople/magento-deployscripts/install.sh";
 
 # ##############
 #Cd into apache folder
@@ -56,13 +58,38 @@ tar -xvzf build-1.extra.tar.gz -C build1extra
 echo $Clearer;
 ls
 
-From1=$ApacheFolder/$BuildAndDeployFolder/patched-files/install.sh;
-TO1=$ApacheFolder/testinstall.sh;
-echo $Clearer;
-echo $FROM1;
-echo $Clearer;
-echo $TO1;
-cp $FROM1 $TO1;
-# echo $From1;
+#################
+#Copy install.sh 
 
-echo "OK!";
+InstallFrom1=$ApacheFolder/$BuildAndDeployFolder/patched-files/install.sh;
+InstallTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$InstallSHPathInVendor;
+cp $InstallFrom1 $InstallTo1;
+echo "Copied Install.sh";
+
+#################
+#Copy apply.php
+
+ApplyPhpFrom1=$ApacheFolder/$BuildAndDeployFolder/patched-files/apply.php;
+ApplyPhpTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$ApplyPhpPathInVendor;
+cp $ApplyPhpFrom1 $ApplyPhpTo1;
+echo "Copied Apply.php (Overwritten)";
+
+
+
+################
+#Re-add to archives. (Maybe only first archive.)
+echo "Re-added to archive;";
+sleep(1);
+
+
+################
+#SSH To Live Server (Rsync?)
+echo "SSH-ing with rsync to live server";
+sleep(1);
+
+################
+#Run export command on live server (Via SSH)
+echo "Running import via ssh on live server";
+sleep(1);
+
+echo "OK! ALL DONE !";
