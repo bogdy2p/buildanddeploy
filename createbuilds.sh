@@ -79,17 +79,16 @@ echo "Copied Apply.php (Overwritten)";
 ################
 #Re-add to archives. (Maybe only first archive.)
 echo "Re-added to archive;";
-sleep(1);
-
+sleep 1;
 
 ################
 #SSH To Live Server (Rsync?)
 echo "SSH-ing with rsync to live server";
-sleep(1);
+sleep 1;
 
 ################
 #Run export command on live server (Via SSH)
 echo "Running import via ssh on live server";
-sleep(1);
+sleep 1;
 
 echo "OK! ALL DONE !";
