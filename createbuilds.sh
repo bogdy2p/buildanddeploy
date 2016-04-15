@@ -12,6 +12,8 @@ MagentoDeployScriptsGit="https://github.com/AOEpeople/magento-deployscripts.git"
 ArtifactsFolder="artifacts";
 ApplyPhpPathInVendor="vendor/aoepeople/envsettingstool/apply.php";
 InstallSHPathInVendor="vendor/aoepeople/magento-deployscripts/install.sh";
+BenabeeFilePathFrom=$ApacheFolder/$AmoranaFolder/"scripts/benabeebridge_lukas_bluebox_PRY0k4IaDNKF13nCldkM42cV0yj2ce.php";
+BenabeeFilePathTo=$ApacheFolder/$AmoranaFolder/"htdocs/benabeebridge_lukas_bluebox_PRY0k4IaDNKF13nCldkM42cV0yj2ce.php";
 
 # ##############
 #Cd into apache folder
@@ -70,38 +72,51 @@ ApplyPhpTo1=$ApacheFolder/$AmoranaFolder/$ArtifactsFolder/build1/$ApplyPhpPathIn
 cp $ApplyPhpFrom1 $ApplyPhpTo1;
 echo "Copied Apply.php (Overwritten)";
 
-# ################
-# #Re-add to archives. (Maybe only first archive.)
-rm build-1.tar.gz
-echo "Removed build1TarGz";
-sleep 1;
+# #################
+# #################
 
-# #Enter build1 folder;
-cd build1;
-echo "Re-creating archive:";
-sleep 1;
+echo "Build and deploy folder:";
+echo $ApacheFolder/$BuildAndDeployFolder;
+echo "Appmorana Folder:";
+echo $ApacheFolder/$AmoranaFolder;
 
-tar -zcvf ../build-1.tar.gz .; 
+echo $BenabeeFilePathFrom;
+echo $BenabeeFilePathTo;
 
-# ls
-echo "Re-added to archive;";
-sleep 2;
+sleep 10;
 
-###################
-#REMOVE TEMPORARY FO1LDER BUILD1
-cd $ApacheFolder/$AmoranaFolder/$ArtifactsFolder;
-rm -R build1;
-sleep 1;
+# # ################
+# # #Re-add to archives. (Maybe only first archive.)
+# rm build-1.tar.gz
+# echo "Removed build1TarGz";
+# sleep 1;
 
-# ################
-# #SSH To Live Server (Rsync?)
-echo "SSH-ing with rsync to live server";
-sh ~/deploy/rsyncbuild.sh;
-sleep 1;
+# # #Enter build1 folder;
+# cd build1;
+# echo "Re-creating archive:";
+# sleep 1;
 
-# ################
-#Run export command on live server (Via SSH)
-echo "Running export via ssh on live server";
-sh ~/deploy/executedeploy.sh;
-sleep 1;
+# tar -zcvf ../build-1.tar.gz .; 
+
+# # ls
+# echo "Re-added to archive;";
+# sleep 2;
+
+# ###################
+# #REMOVE TEMPORARY FO1LDER BUILD1
+# cd $ApacheFolder/$AmoranaFolder/$ArtifactsFolder;
+# rm -R build1;
+# sleep 1;
+
+# # ################
+# # #SSH To Live Server (Rsync?)
+# echo "SSH-ing with rsync to live server";
+# sh ~/deploy/rsyncbuild.sh;
+# sleep 1;
+
+# # ################
+# #Run export command on live server (Via SSH)
+# echo "Running export via ssh on live server";
+# sh ~/deploy/executedeploy.sh;
+# sleep 1;
 echo "OK! ALL DONE !";
