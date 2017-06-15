@@ -112,7 +112,7 @@ echo
 echo "Applying settings"
 echo "-----------------"
 cd "${RELEASEFOLDER}/htdocs" || { echo "Error while switching to htdocs directory" ; exit 1; }
-/usr/local/php/bin/php -f ../tools/apply.php ${ENVIRONMENT} ../Configuration/settings.csv || { echo "Error while applying settings" ; exit 1; }
+/usr/bin/php -f ../tools/apply.php ${ENVIRONMENT} ../Configuration/settings.csv || { echo "Error while applying settings" ; exit 1; }
 echo
 
 
@@ -131,7 +131,7 @@ echo
 echo "Triggering Magento setup scripts via n98-magerun"
 echo "------------------------------------------------"
 cd -P "${RELEASEFOLDER}/htdocs/" || { echo "Error while switching to htdocs directory" ; exit 1; }
-/usr/local/php/bin/php -f ../tools/n98-magerun.phar sys:setup:run || { echo "Error while triggering the update scripts using n98-magerun" ; exit 1; }
+/usr/bin/php -f ../tools/n98-magerun.phar sys:setup:run || { echo "Error while triggering the update scripts using n98-magerun" ; exit 1; }
 
 
 
